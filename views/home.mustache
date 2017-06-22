@@ -1,0 +1,38 @@
+  <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TO DO LIST</title>
+
+    <link rel="stylesheet" href="/css/master.css">
+  </head>
+  <body>
+    <form action="/" method="post">
+      <fieldset>
+        <input type="text" name="todo" value="" placeholder="Enter your todo list" >
+        <input type="submit" placeholder="add todo">
+      </fieldset>
+    </form>
+    <div>
+      {{#mark}}
+        <div><del>{{.}}</del></div>
+      {{/mark}}
+      {{#user}}
+      <form class="todoList"  action='/markAsCompleted' method="post">
+        <input type="hidden" name="name" value="{{.}}">
+        <input type="submit" value="mark">&emsp;
+        <label>{{.}}</label>
+      </form>
+      {{/user}}
+    </div>
+    <div>
+      <h3><b>Completed tasks</b></h3>
+      <div>
+        {{#mark}}
+          <div>{{.}}
+          </div>
+        {{/mark}}
+      </div>
+    </div>
+  </body>
+</html>
